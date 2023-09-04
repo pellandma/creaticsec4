@@ -1,0 +1,5 @@
+Que faut-il modifier au code, afin de permettre qu’il y ait, non pas un, mais plusieurs monstres derrière chaque porte (question théorique) ?
+
+Theoriquement, pour avoir plusieurs monstres derriere chaque porte, il faudrait simplement rajouter une variable pour le deuxieme monstre et y 
+donner une valeur random comme force autre que celle du premier monstre. On pourrait faire ceci infinitement selon le nombre de monstres
+que l'on veut.
