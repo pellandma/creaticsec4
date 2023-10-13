@@ -13,9 +13,11 @@ def JeuDeDevinette():
 
     if essai < x:
         print("Mauvaise reponse, c'est plus haut")
+        JeuDeDevinette()
 
     if essai > x:
         print('mauvaise reponse, elle est plus basse ')
+        JeuDeDevinette()
         
     if essai == x:
         print("Bravo! Bonne reponse, vous avez reussi en: ", (nb_essai)) 
