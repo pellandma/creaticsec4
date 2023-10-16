@@ -2,26 +2,34 @@
 
 import random
 
-x = random.randint(0, 100)
-nb_essai = 0
+
+
+
 
 def JeuDeDevinette():
+    boundarie1 = int(input("Plus petit nombre"))
+    boundarie2 = int(input("Plus Grand nombre"))
+    nb_essai = 0
+		
+    x = random.randint(boundarie1, boundarie2)
 
 
-    print("j'ai choisi un nombre entre 0 et 100." "\nA vous de deviner: ")
-
-    essai = int(input())
-
-
-    if essai < x:
-        print("Mauvaise reponse, c'est plus haut")
-        nb_essai = + 1
-        JeuDeDevinette()
-
-    if essai > x:
-        print('mauvaise reponse, elle est plus basse ')
-        nb_essai = + 1
-        JeuDeDevinette()
+    print("J'ai choisi un nombre entre ", boundarie1,"et ", boundarie2, "\nA vous de deviner: ")
+    essai = None
+    
+    while x != essai:
+      nb_essai += 1
+      essai = int(input())
+      if essai < x:
+	  	
+	        print("Mauvaise reponse, c'est plus haut")
+	        
+	        
+	
+      if essai > x:
+	        print('mauvaise reponse, elle est plus basse ')
+	        
+	        
 
     if essai == x:
         print("Bravo! Bonne reponse, vous avez reussi en: ", nb_essai)
