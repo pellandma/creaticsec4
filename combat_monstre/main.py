@@ -2,30 +2,32 @@ import random
 import time
 #VARIABLES
 numero_combat = 0
-D = random.randint(0,6) * 2
+Force_adversaire = random.randint(1,6) + random.randint(1,6)
 niveau_vie = 20
-Force_adversaire = random.randint(1,5) * 2
-WinCounter = 0
-Force_boss = random.randint(3,5)
-#FUNCTIONS
 
+WinCounter = 0
+
+#FUNCTIONS
+def dices():
+	des = random.randint(1,6) + random.randint(1,6)
+	return des
 
 
 def Boss():
-
+    Force_boss = random.randint(8, 10)
     global niveau_vie
     global WinCounter
     global numero_combat
     numero_combat   += 1    
     
-    if D >= Force_boss:
+    if dices() >= Force_boss:
         print("Le Boss a ete tuer")
         niveau_vie = niveau_vie + Force_boss
         WinCounter += 1
     
     
-    if D < Force_boss:
-        print("Vous avez rouler un ", D, ", Le Boss est plus fort que vous!")
+    if dices() < Force_boss:
+        print("Vous avez rouler un ", dices(), ", Le Boss est plus fort que vous!")
         niveau_vie = niveau_vie - Force_boss
         print("\nIl vous reste", niveau_vie)
         WinCounter -= 1
@@ -45,23 +47,24 @@ def dodge():
 
 
 def fight():
+    global Force_adversaire
     global niveau_vie
     global WinCounter
     global numero_combat
     numero_combat   += 1    
-    
-    if D > Force_adversaire:
-        print("Vous avez rouler un ", D, ", L'adversaire a ete tuer!")
+    Force_adversaire = random.randint(1,6) + random.randint(1,6)
+    if dices() > Force_adversaire:
+        print("Vous avez rouler un ", dices(), ", L'adversaire a ete tuer!")
         niveau_vie = niveau_vie + Force_adversaire
         WinCounter += 1
     
     
-    if D <= Force_adversaire:
-        print("Vous avez rouler un ", D, ", L'adversaire est plus fort que vous!")
+    if dices() <= Force_adversaire:
+        print("Vous avez rouler un ", dices(), ", L'adversaire est plus fort que vous!")
         niveau_vie = niveau_vie - Force_adversaire
         print("\nIl vous reste", niveau_vie)
         WinCounter -= 1
-        if niveau_vie == 0:
+        if niveau_vie <=0:
             print("You lose")
             quit()
 
@@ -69,7 +72,7 @@ def fight():
 def CombatMonstre():
 
     global niveau_vie
-    
+    global Force_adversaire 
 
     print("Vous tombez face à face avec un adversaire de difficulté : ",Force_adversaire)
 
