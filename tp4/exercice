@@ -1,0 +1,79 @@
+#creer par mathieu pelland et emile roy
+#exercices poo 2
+import random
+
+def attaque():
+    nv = random.randint(1,20)
+    return nv
+
+def calcule_armure():
+    defense = random.randint(1,12)
+    return defense
+def calcule_vie():
+    vie = random.randint(1,20)
+    return vie
+
+def calcul_attribut():
+    a = random.randint(1, 6)
+    b = random.randint(1, 6)
+    c = random.randint(1, 6)
+    d = random.randint(1, 6)
+    liste = [a, b, c, d]
+    liste.sort(reverse=True)
+    liste.pop()
+    calcul = liste[0] + liste[1] + liste[2]
+    print(calcul)
+    return calcul
+
+
+class NPC:
+    def __init__(self):
+        self.force = calcul_attribut()
+        self.agile = calcul_attribut()
+        self.int = calcul_attribut()
+        self.sagesse = calcul_attribut()
+        self.charisme = calcul_attribut()
+        self.armure = calcule_armure()
+        self.nom = ""
+        self.race = ""
+        self.espece = ""
+        self.vie = calcule_vie()
+        self.proffesion = ""
+        self.attaque = attaque()
+
+    def afficher_caracteristique(self):
+        print("force: ", self.force, "\nagilite: ", self.agile, "\nintelligence: ", self.int, "\nsagesse: ", self.sagesse, "\ncharisme: ", self.charisme, "\narmure: ", self.armure)
+
+class kobold(NPC):
+    def attaquer(self, cible):
+        if attaque() == 20:
+            cible.subir_dommage(random.randint(1,8))
+
+        if attaque() !=1 or attaque() !=20:
+            if attaque() > calcule_armure():
+                cible.subir_dommage(random.randint(2,19))
+
+
+
+
+
+
+class hero(NPC):
+    def attaquer(self, cible):
+        if attaque() == 20:
+            cible.subir_dommage(random.randint(1,8))
+
+        if attaque() !=1 or attaque() !=20:
+            if attaque() > calcule_armure():
+                cible.subir_dommage(random.randint(2,19))
+
+
+
+npc = NPC()
+npc.afficher_caracteristique()
+
+
+
+
+
+
